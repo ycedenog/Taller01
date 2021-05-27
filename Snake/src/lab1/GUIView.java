@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 /**
  * This panel is meant to be the base of a window or applet. It will add a new
  * GameView with a corresponding GameController to itself. It will also provide
- * a gui for choosing a new game. The list of games will be aquired from
- * a GameFactory.
+ * a gui for choosing a new game. The list of games will be aquired from a
+ * GameFactory.
  */
 public class GUIView extends JPanel {
 	/** The "Start Game" button */
@@ -36,6 +36,7 @@ public class GUIView extends JPanel {
 
 	/**
 	 * Create a new GUIView. This will create a GameView and a GameController.
+	 * 
 	 * @param factory The factory to use for creating games.
 	 */
 	@SuppressWarnings("synthetic-access")
@@ -63,7 +64,13 @@ public class GUIView extends JPanel {
 
 		// Create a new button on that panel and add a StartGameListener as
 		// listener on that button
+<<<<<<< HEAD
 		this.startGameButton = new JButton("Empezar");
+=======
+
+		this.startGameButton = new JButton("Let’s Play");
+
+>>>>>>> 7cdd02de6d82f4dc941c27b4d29e6990ca270056
 		this.startGameButton.addActionListener(new StartGameListener());
 		this.guiPanel.add(this.startGameButton);
 
@@ -77,17 +84,17 @@ public class GUIView extends JPanel {
 	}
 
 	/**
-	 * Get a reference to the game controller. Useful if game needs to be
-	 * stopped by some other means, like in stop() in Applet.
+	 * Get a reference to the game controller. Useful if game needs to be stopped by
+	 * some other means, like in stop() in Applet.
 	 */
 	public GameController getGameController() {
 		return this.gameController;
 	}
 
 	/**
-	 * This inner class will listen for presses on the "Start Game" button.
-	 * It will respond by creating a new game model and starting it using
-	 * the game controller.
+	 * This inner class will listen for presses on the "Start Game" button. It will
+	 * respond by creating a new game model and starting it using the game
+	 * controller.
 	 */
 	private class StartGameListener implements ActionListener {
 		@SuppressWarnings("synthetic-access")
@@ -97,10 +104,8 @@ public class GUIView extends JPanel {
 
 			if (source == GUIView.this.startGameButton) {
 				// Get the name of the game selected in the Choice
-				String gameName =
-						GUIView.this.gameChooser.getSelectedItem().toString();
-				GameModel gameModel =
-						GUIView.this.gameFactory.createGame(gameName);
+				String gameName = GUIView.this.gameChooser.getSelectedItem().toString();
+				GameModel gameModel = GUIView.this.gameFactory.createGame(gameName);
 
 				// Stop current game (if any) and start a new game with the
 				// new game model
